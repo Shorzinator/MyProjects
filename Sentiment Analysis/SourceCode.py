@@ -34,9 +34,16 @@ y = dataset.iloc[:, -1].values
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, random_state = 0)
 
-# Training Models to decide the most accurate model
+# Accuracy is being checked to come up with the optimal solution
 
-# Naive Bayes
-from sklearn.naive_bayes import GaussianNB
-classifier = GaussianNB()
-classifier.fit(X_train, y_train)
+# Checking accuracy for Naive Bayes
+import NaiveBayes
+NaiveBayes.NaiBay(X_train, y_train, X_test, y_test)
+
+# Checking accuracy for Logistic Regression
+import LogisticRegression
+LogisticRegression.LogReg(X_train, y_train, X_test, y_test)
+
+# Checking accuracy for Kernel SVM
+import KernelSVM
+KernelSVM.KSVM(X_train, y_train, X_test, y_test)
