@@ -18,6 +18,7 @@ from sklearn import *
 from sklearn.model_selection import train_test_split  # without this, test_train_split was not working for some reason :p
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 from sklearn import model_selection
 from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score
@@ -62,6 +63,7 @@ scoring = 'accuracy'
 # Defining Models to Train
 models = []
 models.append(('KNN', KNeighborsClassifier(n_neighbors = 5)))
+models.append(('NaiveBayes', GaussianNB()))
 models.append(('SVM', SVC()))
 
 # evaluate each model in turn
