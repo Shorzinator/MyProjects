@@ -41,3 +41,35 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 ```
+
+## Part 2 - Building an ANN
+### Initializing the ANN
+```
+ann = tf.keras.models.Sequential()
+```
+
+### Adding input layer and first hidden layer
+```
+ann.add(tf.keras.layers.Dense(units = 6, activation = 'relu'))
+```
+
+### Adding second hidden layer
+```
+ann.add(tf.keras.layers.Dense(units = 6, activation = 'relu'))
+```
+
+### Adding the output layer
+```
+ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+```
+
+## Part 3 - Training the ANN
+### Compiling the ANN
+```
+ann.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+```
+
+### Training the ANN on the training set
+```
+ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
+```
