@@ -128,5 +128,12 @@ print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
-accuracy_score(y_test, y_pred)
+print("Accuracy = ", accuracy_score(y_test, y_pred) * 100, "%")
+```
+
+The accuracy comes out to be - 
+```
+[[1515   80]
+ [ 201  204]]
+Accuracy = 85.95 %          
 ```
