@@ -60,7 +60,7 @@ ann.add(tf.keras.layers.Dense(units = 6, activation = 'relu'))
 
 ### Adding the output layer
 ```
-ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))     # if the dependant variable was non-binary, activation = 'softmax'
 ```
 
 ## Part 3 - Training the ANN
@@ -73,3 +73,43 @@ ann.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accura
 ```
 ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
 ```
+
+## Part 4 - Making the predictions and evaluating the model
+### Predicting the result of a single observation
+
+Use our ANN model to predict if the customer with the following informations will leave the bank: 
+
+Geography: Spain
+
+Credit Score: 588
+
+Gender: Male
+
+Age: 40 years old
+
+Tenure: 3 years
+
+Balance: \$ 70000
+
+Number of Products: 3
+
+Does this customer have a credit card? Yes
+
+Is this customer an Active Member: Yes
+
+Estimated Salary: \$ 40000
+
+So, should we say goodbye to that customer?
+
+**Solution**
+```
+print(ann.predict(sc.transform([[0, 0, 1, 588, 1, 40, 3, 70000, 3, 1, 1, 40000]])) > 0.5)
+```
+
+Therefore, our ANN model preducts that this customer exits the bank!
+
+Therefore, our ANN model predicts that this customer stays in the bank!
+
+**Important note 1:** Notice that the values of the features were all input in a double pair of square brackets. That's because the "predict" method always expects a 2D array as the format of its inputs. And putting our values into a double pair of square brackets makes the input exactly a 2D array.
+
+**Important note 2:** Notice also that the "Spain" country was not input as a string in the last column but as "0, 0, 1" in the first three columns. That's because of course the predict method expects the one-hot-encoded values of the state, and as we see in the first row of the matrix of features X, "Spain" was encoded as "0, 0, 1". And be careful to include these values in the first three columns, because the dummy variables are always created in the first columns.
