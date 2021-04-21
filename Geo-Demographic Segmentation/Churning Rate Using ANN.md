@@ -105,11 +105,28 @@ So, should we say goodbye to that customer?
 ```
 print(ann.predict(sc.transform([[0, 0, 1, 588, 1, 40, 3, 70000, 3, 1, 1, 40000]])) > 0.5)
 ```
+```
+[[True]]
+```
+Therefore, our ANN model predicts that this customer exits the bank!
 
-Therefore, our ANN model preducts that this customer exits the bank!
-
-Therefore, our ANN model predicts that this customer stays in the bank!
 
 **Important note 1:** Notice that the values of the features were all input in a double pair of square brackets. That's because the "predict" method always expects a 2D array as the format of its inputs. And putting our values into a double pair of square brackets makes the input exactly a 2D array.
 
 **Important note 2:** Notice also that the "Spain" country was not input as a string in the last column but as "0, 0, 1" in the first three columns. That's because of course the predict method expects the one-hot-encoded values of the state, and as we see in the first row of the matrix of features X, "Spain" was encoded as "0, 0, 1". And be careful to include these values in the first three columns, because the dummy variables are always created in the first columns.
+
+
+### Predicting the Test set results
+```
+y_pred = ann.predict(X_test)
+y_pred = (y_pred > 0.5)
+print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+```
+
+### Making the Confusion Matrix
+```
+from sklearn.metrics import confusion_matrix, accuracy_score
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+accuracy_score(y_test, y_pred)
+```
