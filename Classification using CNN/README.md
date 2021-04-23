@@ -1,0 +1,1 @@
+This is a CNN (Convolutional Neural Network) created to classify the images of cats and dogs. The link to the image data is given below: https://drive.google.com/drive/folders/1sUs3qoeKrh5p3Ew1pvOlzt1Ewj3oBKxp?usp=sharing
