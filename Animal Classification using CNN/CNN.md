@@ -35,17 +35,28 @@ cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))  # Pooling Layer
 cnn.add(tf.keras.layers.Conv2D(filters = 32, kernel_size = 3, activation = 'relu'))
 cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))
 ```
-## Step 3 - Flattening
+### Flattening
 ```
 cnn.add(tf.keras.layers.Flattten())
 ```
 
-## Step 4 - Fully Connected Layer
+### Fully Connected Layer
 ```
 cnn.add(tf.keras.layers.Dense(units = 128, activation = 'relu'))
 ```
 
-## Step 5 - Output Layer
+### Output Layer
 ```
 cnn.add(tf.keras.layers.Dence(units = 1, activation = 'sigmoid'))
+```
+
+## Step 3 - Training the CNN
+### Compiling the CNN
+```
+cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+```
+
+### Training the CNN on  the Training set and Evaluating on the Test Set
+```
+cnn.fit(x = training_set, validation_data = test_set, epochs = 25)
 ```
