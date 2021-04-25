@@ -44,3 +44,8 @@ cnn.add(tf.keras.layers.Flattten())
 ```
 cnn.add(tf.keras.layers.Dense(units = 128, activation = 'relu'))
 ```
+
+## Step 5 - Output Layer
+```
+cnn.add(tf.keras.layers.Dence(units = 1, activation = 'sigmoid'))
+```
