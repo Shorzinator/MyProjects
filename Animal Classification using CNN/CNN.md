@@ -35,3 +35,7 @@ cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))  # Pooling Layer
 cnn.add(tf.keras.layers.Conv2D(filters = 32, kernel_size = 3, activation = 'relu'))
 cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))
 ```
+## Step 4 - Flattening
+```
+cnn.add(tf.keras.layers.Flattten())
+```
