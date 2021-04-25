@@ -23,3 +23,15 @@ test_set = test_datagen.flow_from_directroy('dataset/test_set', target_size = (6
 ```
 cnn = tf.keras.models.Sequential()
 ```
+
+### First Convolutional Layer and Pooling Layer
+```
+cnn.add(tf.keras.layers.Conv2D(filters = 32, kernel_size = 3, activation = 'relu', input_shape = [64, 64, 3]))  # Convolutional Layer
+cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))  # Pooling Layer
+```
+
+### Second Convolutional Layer and Pooling Layer
+```
+cnn.add(tf.keras.layers.Conv2D(filters = 32, kernel_size = 3, activation = 'relu'))
+cnn.add(tf.keras.layers.MaxPool2D(pool_size = 2, strides = 2))
+```
