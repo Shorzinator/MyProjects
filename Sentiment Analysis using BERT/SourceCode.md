@@ -42,3 +42,9 @@ learner = ktrain.get_learner(model=model,
                              val_data=(x_test, y_test),
                              batch_size=6)
 ```
+
+### Evaluating the model
+```
+learner.fit_onecycle(lr=2e-5,
+                     epochs=1)
+```
