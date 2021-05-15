@@ -15,7 +15,7 @@ training_set = dataset_train.iloc[:, 1:2].values
 ### Feature Scaling
 ```
 from sklearn.preprocessing import MinMaxScalar
-sc = MinMaxScaler()feature_range = 
+sc = MinMaxScaler(feature_range = (0, 1))
 training_set_scaled = sc.fit_transform(training_set)
 ```
 
