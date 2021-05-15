@@ -43,3 +43,8 @@ from keras.layers import Dense
 from keras.layers import LSTM
 from keras.layers import Dropout
 ```
+
+### Initializing the RNN
+```
+regressor = Sequential()
+```
